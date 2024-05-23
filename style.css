@@ -1,0 +1,24 @@
+.letter {
+	display: inline-block;
+	text-align: center;
+
+	width: 2rem;
+	height: 2rem;
+	padding: 1rem;
+	margin: 0.1rem;
+	background: #eee;
+	border-radius: 1rem;
+	box-shadow: 0 1rem 0 #ccc;
+	font: 1.5rem sans-serif;
+	position: relative;
+}
+.letter-pressed {
+	box-shadow: 0 0.5rem 0 #bbb;
+	transform: translateY(0.5rem);
+	background-color: #ccc;
+}
+.letters {
+	max-width: 42rem;
+	display: flex;
+	flex-flow: row wrap;
+}
