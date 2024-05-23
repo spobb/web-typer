@@ -22,3 +22,9 @@
 	display: flex;
 	flex-flow: row wrap;
 }
+
+.type {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

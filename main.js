@@ -1,9 +1,11 @@
 letters = 'azertyuiopqsdfghjklmwxcvbn';
 letters = letters.split('');
-// letters.forEach((e) => {
-// document.write('<span id="' + e + '" class="letter">' + e + '</span>');
-// if (e == 'p' || e == 'm') document.write('<br>');
-// });
+
+type = 'This is just a simple typing test.';
+type = type.split('');
+type.forEach((e) => {
+	document.write(`<span class="typeletter">${e}<span>`);
+});
 
 document.addEventListener('keydown', (e) => {
 	console.log(e.key);
