@@ -1,3 +1,7 @@
+body {
+	background: #333;
+}
+
 .letter {
 	display: inline-block;
 	text-align: center;
@@ -6,11 +10,27 @@
 	height: 2rem;
 	padding: 1rem;
 	margin: 0.2rem 0;
-	background: #eee;
 	border-radius: 1rem;
-	box-shadow: 0 1rem 0 #ccc;
+	box-shadow: 0 1rem 0 #333;
 	font: 1.5rem sans-serif;
 	position: relative;
+	background: repeat fixed text linear-gradient(90deg, #1e22aa99, #9b26b699, #f8485e99, #ff8f1c99, #fedb0099, #97d70099, #fedb0099, #ff8f1c99, #f8485e99, #9b26b699, #1e22aa99) center/contain, #555;
+	color: transparent;
+	animation: rgb linear infinite 10s;
+}
+@keyframes rgb {
+	from {
+		background-position: -100vw;
+	}
+	to {
+		background-position: 100vw;
+	}
+}
+.wpm {
+	color: white;
+	font-size: 2rem;
+	align-self: center;
+	justify-self: center;
 }
 .letter.space {
 	width: 24rem;
@@ -41,15 +61,15 @@
 	transform: translate(0.4rem, -3rem);
 }
 .letter-pressed {
-	box-shadow: 0 0.5rem 0 #bbb;
+	box-shadow: 0 0.5rem 0 #333;
 	transform: translateY(0.5rem);
-	background-color: #ccc;
+	background-color: #4e4e4e;
 }
 .letters {
 	font-size: 1.5rem;
 	justify-self: center;
-	background-color: #bbb;
-	box-shadow: 0 20px 0 0 #999;
+	background-color: #444;
+	box-shadow: 0 20px 0 0 #222;
 	padding: 2rem;
 	padding-bottom: 2.5rem;
 	border-radius: 1rem;
@@ -60,29 +80,43 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	flex-flow: wrap;
+	height: fit-content;
 	padding: 5rem;
-	font: 2rem sans-serif;
-	overflow: hidden;
+	font: 1.5rem monospace;
+}
+
+.totype {
+	color: #999;
 }
 
 main {
 	display: grid;
-	width: 100vw;
+	max-width: 100vw;
 	max-height: 95dvh;
 	grid-template-rows: 2fr 5fr 2fr;
 }
 
-.cursor {
-	color: #999;
+.current {
+	border-bottom: 1px solid #999;
 	animation: blink infinite 1s;
 }
 
 @keyframes blink {
 	0%,
 	100% {
-		opacity: 1;
+		border-color: #999f;
 	}
 	50% {
-		opacity: 0.1;
+		border-color: #9991;
 	}
+}
+
+.checked {
+	color: #0f0;
+}
+.wrong {
+	color: #f55;
+	background: #f222;
+	border-radius: 1rem;
 }
