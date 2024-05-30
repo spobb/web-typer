@@ -5,12 +5,40 @@
 	width: 2rem;
 	height: 2rem;
 	padding: 1rem;
-	margin: 0.1rem;
+	margin: 0.2rem 0;
 	background: #eee;
 	border-radius: 1rem;
 	box-shadow: 0 1rem 0 #ccc;
 	font: 1.5rem sans-serif;
 	position: relative;
+}
+.letter.space {
+	width: 24rem;
+}
+.letter.xl {
+	width: 12rem;
+}
+.letter.long {
+	width: 8.5rem;
+}
+.letter.mid {
+	width: 5rem;
+}
+.letter.short {
+	width: 3rem;
+}
+.backspace {
+	z-index: -3;
+}
+.enter-top {
+	z-index: -2;
+	width: 5.5rem;
+}
+.enter-bottom {
+	position: absolute;
+	z-index: -1;
+	height: 5rem;
+	transform: translate(0.4rem, -3rem);
 }
 .letter-pressed {
 	box-shadow: 0 0.5rem 0 #bbb;
@@ -18,13 +46,43 @@
 	background-color: #ccc;
 }
 .letters {
-	max-width: 42rem;
-	display: flex;
-	flex-flow: row wrap;
+	font-size: 1.5rem;
+	justify-self: center;
+	background-color: #bbb;
+	box-shadow: 0 20px 0 0 #999;
+	padding: 2rem;
+	padding-bottom: 2.5rem;
+	border-radius: 1rem;
+	z-index: -10;
 }
 
 .type {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	padding: 5rem;
+	font: 2rem sans-serif;
+	overflow: hidden;
+}
+
+main {
+	display: grid;
+	width: 100vw;
+	max-height: 95dvh;
+	grid-template-rows: 2fr 5fr 2fr;
+}
+
+.cursor {
+	color: #999;
+	animation: blink infinite 1s;
+}
+
+@keyframes blink {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.1;
+	}
 }
