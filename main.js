@@ -68,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		'react',
 		'background',
 		'display',
+		'for(i = 0; i < max; ++i)',
 		'flex',
 		'align-items',
 		'justify-content',
