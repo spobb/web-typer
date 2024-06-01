@@ -16,7 +16,9 @@ body {
 	position: relative;
 	background: repeat fixed text linear-gradient(90deg, #1e22aa99, #9b26b699, #f8485e99, #ff8f1c99, #fedb0099, #97d70099, #fedb0099, #ff8f1c99, #f8485e99, #9b26b699, #1e22aa99) center/contain, #555;
 	color: transparent;
+	filter: brightness(100%);
 	animation: rgb linear infinite 10s;
+	transition: filter 0.5s;
 }
 @keyframes rgb {
 	from {
@@ -63,7 +65,17 @@ body {
 .letter-pressed {
 	box-shadow: 0 0.5rem 0 #333;
 	transform: translateY(0.5rem);
-	background-color: #4e4e4e;
+	filter: brightness(75%);
+	transition: none;
+}
+
+@keyframes keypressed {
+	0% {
+		filter: brightness(10%);
+	}
+	100% {
+		filter: brightness(100%);
+	}
 }
 .letters {
 	font-size: 1.5rem;

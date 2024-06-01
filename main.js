@@ -18,13 +18,13 @@ document.addEventListener('DOMContentLoaded', () => {
 		'if',
 		'while',
 		'for',
-		'return',
+		'return;',
 		'querySelector',
-		'Math',
-		'classList',
+		'Math.random()',
+		'classList.remove()',
 		'<div>',
 		'addEventListener',
-		'break',
+		'break;',
 		'default',
 		'switch',
 		'do',
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		'include',
 		'echo',
 		'clone',
-		'case',
+		'case:',
 		'abstract',
 		'and',
 		'as',
@@ -68,7 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		'react',
 		'background',
 		'display',
-		'for(i = 0; i < max; ++i)',
 		'flex',
 		'align-items',
 		'justify-content',
@@ -95,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	let index = 0;
 
-	let wordCount = 10;
+	let wordCount = 20;
 
 	function generateTest(words, count) {
 		let r = '';
@@ -127,14 +126,15 @@ document.addEventListener('DOMContentLoaded', () => {
 	let toType = [];
 
 	strArray.forEach((e) => {
-		toType.push(e == ' ' ? (e = '&nbsp;') : e);
+		// toType.push(e == ' ' ? (e = 'Space') : e);
+		toType.push(e);
 	});
 
 	toType.forEach((letter) => {
 		// if (letter == ' ') letter = '&nbsp;';
 		const l = document.createElement('span');
 		l.classList.add('totype');
-		l.innerHTML = letter;
+		l.innerHTML = letter == ' ' ? '&nbsp;' : letter;
 		document.querySelector('.type').appendChild(l);
 	});
 
@@ -159,22 +159,20 @@ document.addEventListener('DOMContentLoaded', () => {
 				index < letters.length ? letters[index + 1].classList.remove('current') : null;
 				letters[index].classList.add('current');
 
-				letters[index].innerHTML = toType[index];
+				letters[index].innerHTML = toType[index] == ' ' ? '&nbsp;' : toType[index];
 			}
 			return;
 		}
 
 		// ignore key if it is special
 		if (!special.includes(e.code)) {
+			// e.key = e.code == 'Space' ? '&nbsp;' : e.key;
 			if (toType[index] === e.key) {
 				letters[index].classList.add('checked');
 			} else {
 				letters[index].classList.add('wrong');
-				letters[index].innerHTML = e.key;
-				if (e.code == 'Space') {
-					letters[index].innerHTML = '&nbsp;';
-				}
 			}
+			letters[index].innerHTML = e.code == 'Space' ? '&nbsp;' : e.key;
 			index < letters.length ? letters[index + 1].classList.add('current') : null;
 			letters[index].classList.remove('current');
 
