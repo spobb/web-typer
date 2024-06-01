@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		'for',
 		'return;',
 		'querySelector',
-		'Math.random()',
 		'classList.remove()',
 		'<div>',
 		'addEventListener',
@@ -94,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	let index = 0;
 
-	let wordCount = 20;
+	let wordCount = 10;
 
 	function generateTest(words, count) {
 		let r = '';
@@ -123,20 +122,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// creates letters in DOM
 	const strArray = string.split('');
+	const wordsArray = string.split(' ');
 	let toType = [];
 
-	strArray.forEach((e) => {
-		// toType.push(e == ' ' ? (e = 'Space') : e);
-		toType.push(e);
+	// strArray.forEach((e) => {
+	// toType.push(e);
+	// });
+	wordsArray.forEach((word) => {
+		const div = document.createElement('div');
+		div.classList.add('word');
+		wrapper.appendChild(div);
+		word.split('').forEach((letter) => {
+			toType.push(letter);
+			const l = document.createElement('span');
+			l.classList.add('totype');
+			if (letter == ' ') {
+				l.innerHTML = '&nbsp;';
+			} else {
+				l.innerHTML = letter;
+			}
+			div.appendChild(l);
+		});
+		if (wrapper.childElementCount - document.querySelectorAll('.type-space').length < wordsArray.length) {
+			toType.push(' ');
+			const space = document.createElement('span');
+			space.classList.add('totype', 'type-space');
+			space.innerHTML = '&nbsp;';
+			wrapper.appendChild(space);
+		}
 	});
 
 	toType.forEach((letter) => {
 		// if (letter == ' ') letter = '&nbsp;';
-		const l = document.createElement('span');
-		l.classList.add('totype');
-		l.innerHTML = letter == ' ' ? '&nbsp;' : letter;
-		document.querySelector('.type').appendChild(l);
 	});
+	//add div around first word and last word
+	// wrapper.prepend(div);
 
 	const letters = document.querySelectorAll('.totype');
 

@@ -18,7 +18,7 @@ body {
 	color: transparent;
 	filter: brightness(100%);
 	animation: rgb linear infinite 10s;
-	transition: filter 0.5s;
+	transition: filter 1s;
 }
 @keyframes rgb {
 	from {
@@ -65,7 +65,7 @@ body {
 .letter-pressed {
 	box-shadow: 0 0.5rem 0 #333;
 	transform: translateY(0.5rem);
-	filter: brightness(75%);
+	filter: brightness(80%);
 	transition: none;
 }
 
@@ -111,7 +111,7 @@ main {
 
 .current {
 	border-bottom: 1px solid #999;
-	animation: blink infinite 1s;
+	animation: blink infinite 750ms;
 }
 
 @keyframes blink {
@@ -125,10 +125,10 @@ main {
 }
 
 .checked {
-	color: #0f0;
+	color: #7f7;
 }
 .wrong {
-	color: #f55;
+	color: #f77;
 	background: #f222;
 	border-radius: 1rem;
 }
