@@ -20,8 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		'for',
 		'return;',
 		'querySelector',
-		'classList.remove()',
-		'<div>',
+		'div',
 		'addEventListener',
 		'break;',
 		'default',
@@ -89,16 +88,20 @@ document.addEventListener('DOMContentLoaded', () => {
 	// initialize global variables
 
 	let timer = 0;
+
+	// flags
+
 	let TIMED = false;
+	let GAME_END = false;
 
 	let index = 0;
 
-	let wordCount = 10;
+	let wordCount = 5;
 
 	function generateTest(words, count) {
 		let r = '';
 		let i = 0;
-		count -= 1;
+		--count;
 		while (count > i) {
 			r += words[Math.floor(Math.random() * words.length)];
 			r += ' ';
@@ -118,6 +121,11 @@ document.addEventListener('DOMContentLoaded', () => {
 		return Math.floor(index / 5 / ((curr - start) / 60000));
 	}
 
+	function endGame() {
+		GAME_END = true;
+		// document.querySelector('.end-screen').classList.remove('hidden');
+	}
+
 	let string = generateTest(words, wordCount);
 
 	// creates letters in DOM
@@ -133,8 +141,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		div.classList.add('word');
 		wrapper.appendChild(div);
 		word.split('').forEach((letter) => {
-			toType.push(letter);
 			const l = document.createElement('span');
+			toType.push(letter);
 			l.classList.add('totype');
 			if (letter == ' ') {
 				l.innerHTML = '&nbsp;';
@@ -151,36 +159,37 @@ document.addEventListener('DOMContentLoaded', () => {
 			wrapper.appendChild(space);
 		}
 	});
-
-	toType.forEach((letter) => {
-		// if (letter == ' ') letter = '&nbsp;';
-	});
-	//add div around first word and last word
-	// wrapper.prepend(div);
+	const spacer = document.createElement('span');
+	spacer.classList.add('totype');
+	spacer.innerHTML = '';
+	wrapper.appendChild(spacer);
 
 	const letters = document.querySelectorAll('.totype');
 
 	document.addEventListener('keydown', (e) => {
-		//handle keystrokes and style them as pressed
+		if (GAME_END) {
+			return;
+		}
 		if (!TIMED) {
 			timer = startTimer();
 			TIMED = true;
 		}
+
 		if (index < 1) index = 0;
 
-		wpm.innerText = 'WPM:' + getWPM(timer);
+		wpm.innerText = 'wpm: ' + getWPM(timer);
 
 		// delete letter if key is backspace
 		if (e.code == 'Backspace') {
-			if (index > 0) {
-				--index;
-				letters[index].classList.remove('wrong');
-				letters[index].classList.remove('checked');
-				index < letters.length ? letters[index + 1].classList.remove('current') : null;
-				letters[index].classList.add('current');
+			// if (index > 0) {
+			--index;
+			letters[index].classList.remove('wrong');
+			letters[index].classList.remove('checked');
+			index < letters.length ? letters[index + 1].classList.remove('current') : null;
+			letters[index].classList.add('current');
 
-				letters[index].innerHTML = toType[index] == ' ' ? '&nbsp;' : toType[index];
-			}
+			letters[index].innerHTML = toType[index] == ' ' ? '&nbsp;' : toType[index];
+			// }
 			return;
 		}
 
@@ -196,24 +205,24 @@ document.addEventListener('DOMContentLoaded', () => {
 			index < letters.length ? letters[index + 1].classList.add('current') : null;
 			letters[index].classList.remove('current');
 
-			const l = document.createElement('span');
-
-			++index;
 			// l.classList.add('typeletter');
 
 			// wrapper.insertBefore(l, document.querySelector('.cursor'));
+			++index;
 		}
 		// style keyboard
 
+		console.log(index, letters.length);
+
+		if (index + 1 == letters.length) {
+			endGame();
+			stopTimer();
+			return;
+		}
 		document.querySelector('#' + e.code).classList.add('letter-pressed');
 		this.addEventListener('keyup', () => {
 			document.querySelector('#' + e.code).classList.remove('letter-pressed');
 			return;
 		});
-
-		if (index > letters.length) {
-			document.write('VOUS AVEZ FINI!!!!!!!!!!!!!!!!!!!!!!!!');
-			stopTimer();
-		}
 	});
 });

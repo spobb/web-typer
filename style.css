@@ -1,5 +1,47 @@
+:root {
+	--bg: #e0e0e0;
+	--letter-bg: #ddd;
+	--letter-box-shadow: #ccc;
+	--kb-bg: #bbb;
+	--kb-box-shadow: #aaa;
+
+	--main-text-color: #222;
+	--type-text-color: #222;
+
+	--cursor: #999f;
+	--cursor-transparent: #9991;
+
+	--checked: #2c2;
+	--wrong: #c22;
+	--wrong-bg: #c221;
+
+	--rgb: none;
+	--letter-text-color: #222;
+}
+
+[data-theme='dark'] {
+	--bg: #333;
+	--letter-bg: #555;
+	--letter-box-shadow: #333;
+	--kb-bg: #444;
+	--kb-box-shadow: #222;
+
+	--main-text-color: #fff;
+	--type-text-color: #999;
+
+	--cursor: #999f;
+	--cursor-transparent: #9991;
+
+	--checked: #7f7;
+	--wrong: #f77;
+	--wrong-bg: #f22;
+
+	--rgb: repeat fixed text linear-gradient(90deg, #1e22aa99, #9b26b699, #f8485e99, #ff8f1c99, #fedb0099, #97d70099, #fedb0099, #ff8f1c99, #f8485e99, #9b26b699, #1e22aa99) center/contain;
+	--letter-text-color: transparent;
+}
+
 body {
-	background: #333;
+	background: var(--bg);
 }
 
 .letter {
@@ -11,11 +53,11 @@ body {
 	padding: 1rem;
 	margin: 0.2rem 0;
 	border-radius: 1rem;
-	box-shadow: 0 1rem 0 #333;
+	box-shadow: 0 1rem 0 var(--letter-box-shadow);
 	font: 1.5rem sans-serif;
 	position: relative;
-	background: repeat fixed text linear-gradient(90deg, #1e22aa99, #9b26b699, #f8485e99, #ff8f1c99, #fedb0099, #97d70099, #fedb0099, #ff8f1c99, #f8485e99, #9b26b699, #1e22aa99) center/contain, #555;
-	color: transparent;
+	background: var(--rgb), var(--letter-bg);
+	color: var(--letter-text-color);
 	filter: brightness(100%);
 	animation: rgb linear infinite 10s;
 	transition: filter 1s;
@@ -29,7 +71,7 @@ body {
 	}
 }
 .wpm {
-	color: white;
+	color: var(--main-text-color);
 	font-size: 2rem;
 	align-self: center;
 	justify-self: center;
@@ -63,7 +105,7 @@ body {
 	transform: translate(0.4rem, -3rem);
 }
 .letter-pressed {
-	box-shadow: 0 0.5rem 0 #333;
+	box-shadow: 0 0.5rem 0 var(--letter-box-shadow);
 	transform: translateY(0.5rem);
 	filter: brightness(80%);
 	transition: none;
@@ -80,8 +122,8 @@ body {
 .letters {
 	font-size: 1.5rem;
 	justify-self: center;
-	background-color: #444;
-	box-shadow: 0 20px 0 0 #222;
+	background-color: var(--kb-bg);
+	box-shadow: 0 20px 0 0 var(--kb-box-shadow);
 	padding: 2rem;
 	padding-bottom: 2.5rem;
 	border-radius: 1rem;
@@ -93,13 +135,13 @@ body {
 	align-items: center;
 	justify-content: center;
 	flex-flow: wrap;
-	height: fit-content;
+	/* height: 1; */
 	padding: 5rem;
 	font: 1.5rem monospace;
 }
 
 .totype {
-	color: #999;
+	color: var(--type-text-color);
 }
 
 main {
@@ -110,25 +152,28 @@ main {
 }
 
 .current {
-	border-bottom: 1px solid #999;
+	border-bottom: 1px solid;
 	animation: blink infinite 750ms;
 }
 
 @keyframes blink {
 	0%,
 	100% {
-		border-color: #999f;
+		border-color: var(--cursor);
 	}
 	50% {
-		border-color: #9991;
+		border-color: var(--cursor-transparent);
 	}
 }
 
 .checked {
-	color: #7f7;
+	color: var(--checked);
 }
 .wrong {
-	color: #f77;
-	background: #f222;
+	color: var(--wrong);
+	background: var(--wrong-bg);
 	border-radius: 1rem;
+}
+.hidden {
+	display: none !important;
 }
