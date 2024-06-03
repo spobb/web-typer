@@ -6,12 +6,13 @@
 	--kb-box-shadow: #aaa;
 
 	--main-text-color: #222;
-	--type-text-color: #222;
+	--type-text-color: #999;
 
 	--cursor: #999f;
 	--cursor-transparent: #9991;
 
-	--checked: #2c2;
+	--checked: #222;
+	/* --checked: #2c2; */
 	--wrong: #c22;
 	--wrong-bg: #c221;
 
