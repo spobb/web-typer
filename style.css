@@ -1,4 +1,4 @@
-:root {
+[data-theme='light'] {
 	--bg: #e0e0e0;
 	--letter-bg: #ddd;
 	--letter-box-shadow: #ccc;
@@ -18,6 +18,8 @@
 
 	--rgb: none;
 	--letter-text-color: #222;
+
+	--brightness: brightness(90%);
 }
 
 [data-theme='dark'] {
@@ -35,12 +37,31 @@
 
 	--checked: #7f7;
 	--wrong: #f77;
-	--wrong-bg: #f22;
+	--wrong-bg: #f222;
 
-	--rgb: repeat fixed text linear-gradient(90deg, #1e22aa99, #9b26b699, #f8485e99, #ff8f1c99, #fedb0099, #97d70099, #fedb0099, #ff8f1c99, #f8485e99, #9b26b699, #1e22aa99) center/contain;
+	--rgb: repeat fixed text
+		linear-gradient(
+			90deg,
+			#1e22aa99,
+			#9b26b699,
+			#f8485e99,
+			#ff8f1c99,
+			#fedb0099,
+			#97d70099,
+			#fedb0099,
+			#ff8f1c99,
+			#f8485e99,
+			#9b26b699,
+			#1e22aa99
+		)
+		center/contain;
 	--letter-text-color: transparent;
-}
 
+	--brightness: brightness(80%);
+}
+:root {
+	font-size: 0.8rem;
+}
 body {
 	background: var(--bg);
 }
@@ -108,7 +129,7 @@ body {
 .letter-pressed {
 	box-shadow: 0 0.5rem 0 var(--letter-box-shadow);
 	transform: translateY(0.5rem);
-	filter: brightness(80%);
+	filter: var(--brightness);
 	transition: none;
 }
 
@@ -135,8 +156,8 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	flex-flow: wrap;
-	/* height: 1; */
+	flex-wrap: wrap;
+	height: fit-content;
 	padding: 5rem;
 	font: 1.5rem monospace;
 }
@@ -177,4 +198,8 @@ main {
 }
 .hidden {
 	display: none !important;
+}
+.themes * {
+	appearance: none;
+	font: 1.5rem monospace;
 }

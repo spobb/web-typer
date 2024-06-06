@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	let index = 0;
 
-	let wordCount = 5;
+	let wordCount = 25;
 
 	function generateTest(words, count) {
 		let r = '';
@@ -177,7 +177,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		if (index < 1) index = 0;
 
-		wpm.innerText = 'wpm: ' + getWPM(timer);
 
 		// delete letter if key is backspace
 		if (e.code == 'Backspace') {
@@ -224,5 +223,8 @@ document.addEventListener('DOMContentLoaded', () => {
 			document.querySelector('#' + e.code).classList.remove('letter-pressed');
 			return;
 		});
+
+		// update wpm
+		if(index > 1) wpm.innerText = 'wpm: ' + getWPM(timer);
 	});
 });

@@ -1,16 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Keyboard</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
     <main>
-        <div class="wpm">wpm: </div>
-        <div class="type">
+        <div class="themes" id="theme-picker">
+            <label>
+                <input name="theme" type="radio" value="auto" checked>
+                Auto
+            </label>
+            <label>
+                <input name="theme" type="radio" value="light">
+                Light
+            </label>
+            <label>
+                <input name="theme" type="radio" value="dark">
+                Dark
+            </label>
         </div>
+        <div class="wpm">wpm: 0</div>
+        <div class="type"></div>
         <div class="letters">
             <span id="Backquote" class="letter">²</span>
             <span id="Digit1" class="letter">1</span>
@@ -26,7 +41,7 @@
             <span id="Minus" class="letter">)</span>
             <span id="Equal" class="letter">=</span>
             <span id="Backspace" class="letter long backspace">Backspace</span>
-            <br>
+            <br />
             <span id="Tab" class="letter mid">Tab</span>
             <span id="KeyQ" class="letter">a</span>
             <span id="KeyW" class="letter">z</span>
@@ -40,8 +55,8 @@
             <span id="KeyP" class="letter">p</span>
             <span id="BracketLeft" class="letter">^¨</span>
             <span id="BracketRight" class="letter">$£</span>
-            <!-- <span id="Enter" class="letter enter-top">&nbsp;</span> -->
-            <br>
+            <span id="Enter" class="letter enter-top">&nbsp;</span>
+            <br />
             <span id="CapsLock" class="letter long">Caps</span>
             <span id="KeyA" class="letter">q</span>
             <span id="KeyS" class="letter">s</span>
@@ -55,9 +70,9 @@
             <span id="Semicolon" class="letter">m</span>
             <span id="Quote" class="letter">ù%</span>
             <span id="Backslash" class="letter">*µ</span>
-            <!-- <span id="EnterBottom" class="letter enter-bottom">&nbsp;</span> -->
+            <span id="EnterBottom" class="letter enter-bottom">&nbsp;</span>
 
-            <br>
+            <br />
             <span id="ShiftLeft" class="letter short">Shift</span>
             <span id="IntlBackslash" class="letter">&lt;&gt;</span>
             <span id="KeyZ" class="letter">w</span>
@@ -71,7 +86,7 @@
             <span id="Period" class="letter">:/</span>
             <span id="Slash" class="letter">!§</span>
             <span id="ShiftRight" class="letter xl">Shift</span>
-            <br>
+            <br />
             <span id="ControlLeft" class="letter mid">Ctrl</span>
             <span id="MetaLeft" class="letter short">Win</span>
             <span id="AltLeft" class="letter short">Alt</span>
@@ -83,5 +98,7 @@
         </div>
     </main>
     <script src="main.js"></script>
+    <script src="theme.js"></script>
 </body>
+
 </html>
