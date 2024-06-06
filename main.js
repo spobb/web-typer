@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-	const special = ['ContextMenu', 'Meta', 'Tab', 'ControlLeft', 'ControlRight', 'ShiftLeft', 'ShiftRight', 'Enter', 'AltLeft', 'AltRight', 'CapsLock', 'BracketLeft'];
+	const special = ['ContextMenu', 'Meta', 'Tab', 'ControlLeft', 'ControlRight', 'ShiftLeft', 'ShiftRight', 'Enter', 'AltLeft', 'AltRight', 'CapsLock', 'BracketLeft', 'Backspace'];
 	const wrapper = document.querySelector('.type');
 	const wpm = document.querySelector('.wpm');
 
@@ -177,10 +177,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		if (index < 1) index = 0;
 
-
 		// delete letter if key is backspace
 		if (e.code == 'Backspace') {
-			// if (index > 0) {
 			--index;
 			letters[index].classList.remove('wrong');
 			letters[index].classList.remove('checked');
@@ -189,12 +187,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 			letters[index].innerHTML = toType[index] == ' ' ? '&nbsp;' : toType[index];
 			// }
-			return;
+			// return;
 		}
 
 		// ignore key if it is special
 		if (!special.includes(e.code)) {
-			// e.key = e.code == 'Space' ? '&nbsp;' : e.key;
 			if (toType[index] === e.key) {
 				letters[index].classList.add('checked');
 			} else {
@@ -204,9 +201,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			index < letters.length ? letters[index + 1].classList.add('current') : null;
 			letters[index].classList.remove('current');
 
-			// l.classList.add('typeletter');
-
-			// wrapper.insertBefore(l, document.querySelector('.cursor'));
 			++index;
 		}
 		// style keyboard
@@ -225,6 +219,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 
 		// update wpm
-		if(index > 1) wpm.innerText = 'wpm: ' + getWPM(timer);
+		if (index > 1) wpm.innerText = 'wpm: ' + getWPM(timer);
 	});
 });

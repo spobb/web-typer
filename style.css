@@ -1,4 +1,5 @@
-[data-theme='light'] {
+[data-theme='light'],
+html {
 	--bg: #e0e0e0;
 	--letter-bg: #ddd;
 	--letter-box-shadow: #ccc;
@@ -22,11 +23,34 @@
 	--brightness: brightness(90%);
 }
 
+[data-theme='tilia'] {
+	--bg: #fecede;
+	--letter-bg: #748;
+	--letter-box-shadow: #637;
+	--kb-bg: #eac;
+	--kb-box-shadow: #d9b;
+
+	--main-text-color: #222;
+	--type-text-color: #999;
+
+	--cursor: #999f;
+	--cursor-transparent: #9991;
+
+	--checked: #748;
+	--wrong: #f77;
+	--wrong-bg: #f222;
+
+	--rgb: repeat fixed text linear-gradient(90deg, #1e22aa99, #9b26b699, #f8485e99, #ff8f1c99, #fedb0099, #97d70099, #fedb0099, #ff8f1c99, #f8485e99, #9b26b699, #1e22aa99) center/contain;
+	--letter-text-color: transparent;
+
+	--brightness: brightness(80%);
+}
+
 [data-theme='dark'] {
-	--bg: #333;
+	--bg: #2e2e2e;
 	--letter-bg: #555;
-	--letter-box-shadow: #333;
-	--kb-bg: #444;
+	--letter-box-shadow: #454545;
+	--kb-bg: #3c3c3c;
 	--kb-box-shadow: #222;
 
 	--main-text-color: #fff;
@@ -39,31 +63,62 @@
 	--wrong: #f77;
 	--wrong-bg: #f222;
 
-	--rgb: repeat fixed text
-		linear-gradient(
-			90deg,
-			#1e22aa99,
-			#9b26b699,
-			#f8485e99,
-			#ff8f1c99,
-			#fedb0099,
-			#97d70099,
-			#fedb0099,
-			#ff8f1c99,
-			#f8485e99,
-			#9b26b699,
-			#1e22aa99
-		)
-		center/contain;
+	--rgb: none;
+	--letter-text-color: #ddd;
+
+	--brightness: brightness(80%);
+}
+[data-theme='light-rgb'] {
+	--bg: #e0e0e0;
+	--letter-bg: #ddd;
+	--letter-box-shadow: #ccc;
+	--kb-bg: #bbb;
+	--kb-box-shadow: #aaa;
+
+	--main-text-color: #222;
+	--type-text-color: #999;
+
+	--cursor: #999f;
+	--cursor-transparent: #9991;
+
+	--checked: #222;
+	/* --checked: #2c2; */
+	--wrong: #c22;
+	--wrong-bg: #c221;
+
+	--rgb: repeat fixed text linear-gradient(90deg, #1e22aa99, #9b26b699, #f8485e99, #ff8f1c99, #fedb0099, #97d70099, #fedb0099, #ff8f1c99, #f8485e99, #9b26b699, #1e22aa99) center/contain;
+	--letter-text-color: transparent;
+
+	--brightness: brightness(90%);
+}
+[data-theme='dark-rgb'] {
+	--bg: #2e2e2e;
+	--letter-bg: #555;
+	--letter-box-shadow: #454545;
+	--kb-bg: #3c3c3c;
+	--kb-box-shadow: #222;
+
+	--main-text-color: #fff;
+	--type-text-color: #999;
+
+	--cursor: #999f;
+	--cursor-transparent: #9991;
+
+	--checked: #7f7;
+	--wrong: #f77;
+	--wrong-bg: #f222;
+
+	--rgb: repeat fixed text linear-gradient(90deg, #1e22aa99, #9b26b699, #f8485e99, #ff8f1c99, #fedb0099, #97d70099, #fedb0099, #ff8f1c99, #f8485e99, #9b26b699, #1e22aa99) center/contain;
 	--letter-text-color: transparent;
 
 	--brightness: brightness(80%);
 }
-:root {
-	font-size: 0.8rem;
+* {
+	/* font-size: 0.8rem; */
 }
 body {
 	background: var(--bg);
+	color: var(--main-text-color);
 }
 
 .letter {
@@ -164,6 +219,7 @@ body {
 
 .totype {
 	color: var(--type-text-color);
+	border-bottom: 1px solid #0000;
 }
 
 main {
@@ -175,7 +231,7 @@ main {
 
 .current {
 	border-bottom: 1px solid;
-	animation: blink infinite 750ms;
+	animation: 500ms infinite 500ms blink;
 }
 
 @keyframes blink {

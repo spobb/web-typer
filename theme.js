@@ -12,11 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	const initialTheme = cachedTheme ?? 'auto';
 	themePicker.querySelector('input[checked]').removeAttribute('checked');
-	themePicker
-		.querySelector(`input[value="${initialTheme}"]`)
-		.setAttribute('checked', '');
+	themePicker.querySelector(`input[value="${initialTheme}"]`).setAttribute('checked', '');
 
-	themePicker.addEventListener('change', e => {
+	themePicker.addEventListener('change', (e) => {
 		const theme = e.target.value;
 		if (theme === 'auto') {
 			delete ctx.dataset[key];
