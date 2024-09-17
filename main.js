@@ -1,7 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-	const special = ['ContextMenu', 'Meta', 'Tab', 'ControlLeft', 'ControlRight', 'ShiftLeft', 'ShiftRight', 'Enter', 'AltLeft', 'AltRight', 'CapsLock', 'BracketLeft', 'Backspace'];
+	const special = ['ContextMenu', 'Meta', 'Tab', 'ControlLeft', 'ControlRight', 'ShiftLeft', 'ShiftRight', 'Enter', 'AltLeft', 'AltRight', 'CapsLock', 'BracketLeft', 'Backspace', 'F5'];
 	const wrapper = document.querySelector('.type');
 	const wpm = document.querySelector('.wpm');
+
+	//selectors
+
+	const wordCountSelect = document.querySelector('.word-count');
 
 	const words = [
 		'int',
@@ -84,32 +88,24 @@ document.addEventListener('DOMContentLoaded', () => {
 		'footer',
 		'script',
 	];
-
 	// initialize global variables
 
 	let timer = 0;
+	let index = 0;
+	let wordCount = 25;
 
 	// flags
 
 	let TIMED = false;
 	let GAME_END = false;
 
-	let index = 0;
-
-	let wordCount = 25;
-
-	function generateTest(words, count) {
+	function generateString(words, count) {
 		let r = '';
-		let i = 0;
-		--count;
-		while (count > i) {
-			r += words[Math.floor(Math.random() * words.length)];
-			r += ' ';
-			++i;
+		while (count - 1 > 0) {
+			r += `${words[Math.floor(Math.random() * words.length)]} `;
+			--count;
 		}
-		r += words[Math.floor(Math.random() * words.length)];
-		r += '';
-		return r;
+		return (r += `${words[Math.floor(Math.random() * words.length)]}`);
 	}
 
 	function startTimer() {
@@ -126,47 +122,57 @@ document.addEventListener('DOMContentLoaded', () => {
 		// document.querySelector('.end-screen').classList.remove('hidden');
 	}
 
-	let string = generateTest(words, wordCount);
 
-	// creates letters in DOM
-	const strArray = string.split('');
-	const wordsArray = string.split(' ');
-	let toType = [];
+	function generateTest(words, wordCount) {
+		wrapper.innerHTML = '';
+		// creates letters in DOM
+		let string = generateString(words, wordCount);
+		const wordsArray = string.split(' ');
 
-	// strArray.forEach((e) => {
-	// toType.push(e);
-	// });
-	wordsArray.forEach((word) => {
-		const div = document.createElement('div');
-		div.classList.add('word');
-		wrapper.appendChild(div);
-		word.split('').forEach((letter) => {
-			const l = document.createElement('span');
-			toType.push(letter);
-			l.classList.add('totype');
-			if (letter == ' ') {
-				l.innerHTML = '&nbsp;';
-			} else {
-				l.innerHTML = letter;
+		wordsArray.forEach(word => {
+			const div = document.createElement('div');
+			div.classList.add('word');
+			wrapper.appendChild(div);
+			word.split('').forEach(letter => {
+				const l = document.createElement('span');
+				toType.push(letter);
+				l.classList.add('totype');
+				if (letter == ' ') {
+					l.innerHTML = '&nbsp;';
+				} else {
+					l.innerHTML = letter;
+				}
+				div.appendChild(l);
+			});
+			if (wrapper.childElementCount - document.querySelectorAll('.type-space').length < wordsArray.length) {
+				toType.push(' ');
+				const space = document.createElement('span');
+				space.classList.add('totype', 'type-space');
+				space.innerHTML = '&nbsp;';
+				wrapper.appendChild(space);
 			}
-			div.appendChild(l);
 		});
-		if (wrapper.childElementCount - document.querySelectorAll('.type-space').length < wordsArray.length) {
-			toType.push(' ');
-			const space = document.createElement('span');
-			space.classList.add('totype', 'type-space');
-			space.innerHTML = '&nbsp;';
-			wrapper.appendChild(space);
-		}
-	});
-	const spacer = document.createElement('span');
-	spacer.classList.add('totype');
-	spacer.innerHTML = '';
-	wrapper.appendChild(spacer);
+		const spacer = document.createElement('span');
+		spacer.classList.add('totype');
+		spacer.innerHTML = '';
+		wrapper.appendChild(spacer);
 
-	const letters = document.querySelectorAll('.totype');
+	}
+	let toType = [];
+	string = generateTest(words, wordCount);
+	let letters = document.querySelectorAll('.totype');
 
-	document.addEventListener('keydown', (e) => {
+	wordCountSelect.addEventListener('change', e => {
+		toType = [];
+		timer = 0;
+		index = 0;
+		wordCount = e.target.value
+		string = generateTest(words, wordCount);
+		letters = document.querySelectorAll('.totype');
+	})
+
+
+	document.addEventListener('keydown', e => {
 		if (GAME_END) {
 			return;
 		}
@@ -204,8 +210,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			++index;
 		}
 		// style keyboard
-
-		console.log(index, letters.length);
 
 		if (index + 1 == letters.length) {
 			endGame();

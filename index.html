@@ -1,116 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Keyboard</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Keyboard</title>
-    <link rel="stylesheet" href="style.css" />
-</head>
+	<body>
+		<main>
+			<nav>
+				<div class="themes radio" id="theme-picker">
+					<input name="theme" type="hidden" value="auto" checked />
+					<label>
+						<input name="theme" type="radio" value="dark" />
+						Dark
+					</label>
+					<label>
+						<input name="theme" type="radio" value="dark-rgb" />
+						Dark RGB
+					</label>
+					<label>
+						<input name="theme" type="radio" value="light" />
+						Light
+					</label>
+					<label>
+						<input name="theme" type="radio" value="light-rgb" />
+						Light RGB
+					</label>
+				</div>
+			</nav>
+			<div class="bar">
+				<div class="wpm">wpm: 0</div>
+				<span class="vr">|</span>
+				<nav>
+					<div class="word-count radio list">
+						<label>
+							<input name="word-count" type="radio" value="10" />
+							10
+						</label>
+						<label>
+							<input name="word-count" type="radio" value="25" checked />
+							25
+						</label>
+						<label>
+							<input name="word-count" type="radio" value="50" />
+							50
+						</label>
+						<label>
+							<input name="word-count" type="radio" value="100" />
+							100
+						</label>
+					</div>
+					<span class="vr">|</span>
+					<div class="timer-length radio list">
+						<label>
+							<input name="timer-length" type="radio" value="10" />
+							10'
+						</label>
+						<label>
+							<input name="timer-length" type="radio" value="10" />
+							25'
+						</label>
+						<label>
+							<input name="timer-length" type="radio" value="10" />
+							1"
+						</label>
+						<label>
+							<input name="timer-length" type="radio" value="10" />
+							2"
+						</label>
+					</div>
+				</nav>
+			</div>
+			<div class="type"></div>
+			<div class="letters">
+				<span id="Backquote" class="letter">²</span>
+				<span id="Digit1" class="letter">1</span>
+				<span id="Digit2" class="letter">2</span>
+				<span id="Digit3" class="letter">3</span>
+				<span id="Digit4" class="letter">4</span>
+				<span id="Digit5" class="letter">5</span>
+				<span id="Digit6" class="letter">6</span>
+				<span id="Digit7" class="letter">7</span>
+				<span id="Digit8" class="letter">8</span>
+				<span id="Digit9" class="letter">9</span>
+				<span id="Digit0" class="letter">0</span>
+				<span id="Minus" class="letter">)</span>
+				<span id="Equal" class="letter">=</span>
+				<span id="Backspace" class="letter long backspace">Backspace</span>
+				<br />
+				<span id="Tab" class="letter mid">Tab</span>
+				<span id="KeyQ" class="letter">a</span>
+				<span id="KeyW" class="letter">z</span>
+				<span id="KeyE" class="letter">e</span>
+				<span id="KeyR" class="letter">r</span>
+				<span id="KeyT" class="letter">t</span>
+				<span id="KeyY" class="letter">y</span>
+				<span id="KeyU" class="letter">u</span>
+				<span id="KeyI" class="letter">i</span>
+				<span id="KeyO" class="letter">o</span>
+				<span id="KeyP" class="letter">p</span>
+				<span id="BracketLeft" class="letter">^¨</span>
+				<span id="BracketRight" class="letter">$£</span>
+				<span id="Enter" class="letter enter-top">&nbsp;</span>
+				<br />
+				<span id="CapsLock" class="letter long">Caps</span>
+				<span id="KeyA" class="letter">q</span>
+				<span id="KeyS" class="letter">s</span>
+				<span id="KeyD" class="letter">d</span>
+				<span id="KeyF" class="letter">f</span>
+				<span id="KeyG" class="letter">g</span>
+				<span id="KeyH" class="letter">h</span>
+				<span id="KeyJ" class="letter">j</span>
+				<span id="KeyK" class="letter">k</span>
+				<span id="KeyL" class="letter">l</span>
+				<span id="Semicolon" class="letter">m</span>
+				<span id="Quote" class="letter">ù%</span>
+				<span id="Backslash" class="letter">*µ</span>
+				<span id="EnterBottom" class="letter enter-bottom">&nbsp;</span>
 
-<body>
-    <main>
-        <div class="themes" id="theme-picker">
-            <label>
-                <input name="theme" type="radio" value="auto" checked>
-                Auto
-            </label>
-            <label>
-                <input name="theme" type="radio" value="light">
-                Light
-            </label>
-            <label>
-                <input name="theme" type="radio" value="dark">
-                Dark
-            </label>
-            <label>
-                <input name="theme" type="radio" value="light-rgb">
-                Light RGB
-            </label>
-            <label>
-                <input name="theme" type="radio" value="dark-rgb">
-                Dark RGB
-            </label>
-            <label>
-                <input name="theme" type="radio" value="tilia">
-                Tilia
-            </label>
-        </div>
-        <div class="wpm">wpm: 0</div>
-        <div class="type"></div>
-        <div class="letters">
-            <span id="Backquote" class="letter">²</span>
-            <span id="Digit1" class="letter">1</span>
-            <span id="Digit2" class="letter">2</span>
-            <span id="Digit3" class="letter">3</span>
-            <span id="Digit4" class="letter">4</span>
-            <span id="Digit5" class="letter">5</span>
-            <span id="Digit6" class="letter">6</span>
-            <span id="Digit7" class="letter">7</span>
-            <span id="Digit8" class="letter">8</span>
-            <span id="Digit9" class="letter">9</span>
-            <span id="Digit0" class="letter">0</span>
-            <span id="Minus" class="letter">)</span>
-            <span id="Equal" class="letter">=</span>
-            <span id="Backspace" class="letter long backspace">Backspace</span>
-            <br />
-            <span id="Tab" class="letter mid">Tab</span>
-            <span id="KeyQ" class="letter">a</span>
-            <span id="KeyW" class="letter">z</span>
-            <span id="KeyE" class="letter">e</span>
-            <span id="KeyR" class="letter">r</span>
-            <span id="KeyT" class="letter">t</span>
-            <span id="KeyY" class="letter">y</span>
-            <span id="KeyU" class="letter">u</span>
-            <span id="KeyI" class="letter">i</span>
-            <span id="KeyO" class="letter">o</span>
-            <span id="KeyP" class="letter">p</span>
-            <span id="BracketLeft" class="letter">^¨</span>
-            <span id="BracketRight" class="letter">$£</span>
-            <span id="Enter" class="letter enter-top">&nbsp;</span>
-            <br />
-            <span id="CapsLock" class="letter long">Caps</span>
-            <span id="KeyA" class="letter">q</span>
-            <span id="KeyS" class="letter">s</span>
-            <span id="KeyD" class="letter">d</span>
-            <span id="KeyF" class="letter">f</span>
-            <span id="KeyG" class="letter">g</span>
-            <span id="KeyH" class="letter">h</span>
-            <span id="KeyJ" class="letter">j</span>
-            <span id="KeyK" class="letter">k</span>
-            <span id="KeyL" class="letter">l</span>
-            <span id="Semicolon" class="letter">m</span>
-            <span id="Quote" class="letter">ù%</span>
-            <span id="Backslash" class="letter">*µ</span>
-            <span id="EnterBottom" class="letter enter-bottom">&nbsp;</span>
-
-            <br />
-            <span id="ShiftLeft" class="letter short">Shift</span>
-            <span id="IntlBackslash" class="letter">&lt;&gt;</span>
-            <span id="KeyZ" class="letter">w</span>
-            <span id="KeyX" class="letter">x</span>
-            <span id="KeyC" class="letter">c</span>
-            <span id="KeyV" class="letter">v</span>
-            <span id="KeyB" class="letter">b</span>
-            <span id="KeyN" class="letter">n</span>
-            <span id="KeyM" class="letter">,?</span>
-            <span id="Comma" class="letter">;.</span>
-            <span id="Period" class="letter">:/</span>
-            <span id="Slash" class="letter">!§</span>
-            <span id="ShiftRight" class="letter xl">Shift</span>
-            <br />
-            <span id="ControlLeft" class="letter mid">Ctrl</span>
-            <span id="MetaLeft" class="letter short">Win</span>
-            <span id="AltLeft" class="letter short">Alt</span>
-            <span id="Space" class="letter space">Space</span>
-            <span id="AltRight" class="letter short">Alt</span>
-            <span id="Function" class="letter short">Fn</span>
-            <span id="ContextMenu" class="letter short">Ctx</span>
-            <span id="ControlRight" class="letter mid">Ctrl</span>
-        </div>
-    </main>
-    <script src="main.js"></script>
-    <script src="theme.js"></script>
-</body>
-
+				<br />
+				<span id="ShiftLeft" class="letter short">Shift</span>
+				<span id="IntlBackslash" class="letter">&lt;&gt;</span>
+				<span id="KeyZ" class="letter">w</span>
+				<span id="KeyX" class="letter">x</span>
+				<span id="KeyC" class="letter">c</span>
+				<span id="KeyV" class="letter">v</span>
+				<span id="KeyB" class="letter">b</span>
+				<span id="KeyN" class="letter">n</span>
+				<span id="KeyM" class="letter">,?</span>
+				<span id="Comma" class="letter">;.</span>
+				<span id="Period" class="letter">:/</span>
+				<span id="Slash" class="letter">!§</span>
+				<span id="ShiftRight" class="letter xl">Shift</span>
+				<br />
+				<span id="ControlLeft" class="letter mid">Ctrl</span>
+				<span id="MetaLeft" class="letter short">Win</span>
+				<span id="AltLeft" class="letter short">Alt</span>
+				<span id="Space" class="letter space">Space</span>
+				<span id="AltRight" class="letter short">Alt</span>
+				<span id="Function" class="letter short">Fn</span>
+				<span id="ContextMenu" class="letter short">Ctx</span>
+				<span id="ControlRight" class="letter mid">Ctrl</span>
+			</div>
+		</main>
+		<script src="main.js"></script>
+		<script src="theme.js"></script>
+	</body>
 </html>

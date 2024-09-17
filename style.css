@@ -1,95 +1,22 @@
-[data-theme='light'],
+[data-theme='dark'],
 html {
-	--bg: #e0e0e0;
-	--letter-bg: #ddd;
-	--letter-box-shadow: #ccc;
-	--kb-bg: #bbb;
-	--kb-box-shadow: #aaa;
-
-	--main-text-color: #222;
-	--type-text-color: #999;
-
-	--cursor: #999f;
-	--cursor-transparent: #9991;
-
-	--checked: #222;
-	/* --checked: #2c2; */
-	--wrong: #c22;
-	--wrong-bg: #c221;
-
-	--rgb: none;
-	--letter-text-color: #222;
-
-	--brightness: brightness(90%);
-}
-
-[data-theme='tilia'] {
-	--bg: #fecede;
-	--letter-bg: #748;
-	--letter-box-shadow: #637;
-	--kb-bg: #eac;
-	--kb-box-shadow: #d9b;
-
-	--main-text-color: #222;
-	--type-text-color: #999;
-
-	--cursor: #999f;
-	--cursor-transparent: #9991;
-
-	--checked: #748;
-	--wrong: #f77;
-	--wrong-bg: #f222;
-
-	--rgb: repeat fixed text linear-gradient(90deg, #1e22aa99, #9b26b699, #f8485e99, #ff8f1c99, #fedb0099, #97d70099, #fedb0099, #ff8f1c99, #f8485e99, #9b26b699, #1e22aa99) center/contain;
-	--letter-text-color: transparent;
-
-	--brightness: brightness(80%);
-}
-
-[data-theme='dark'] {
 	--bg: #2e2e2e;
 	--letter-bg: #555;
 	--letter-box-shadow: #454545;
 	--kb-bg: #3c3c3c;
 	--kb-box-shadow: #222;
-
 	--main-text-color: #fff;
 	--type-text-color: #999;
-
+	--list-text-color: #666;
+	--list-border: #6669;
 	--cursor: #999f;
 	--cursor-transparent: #9991;
-
 	--checked: #7f7;
 	--wrong: #f77;
 	--wrong-bg: #f222;
-
 	--rgb: none;
 	--letter-text-color: #ddd;
-
 	--brightness: brightness(80%);
-}
-[data-theme='light-rgb'] {
-	--bg: #e0e0e0;
-	--letter-bg: #ddd;
-	--letter-box-shadow: #ccc;
-	--kb-bg: #bbb;
-	--kb-box-shadow: #aaa;
-
-	--main-text-color: #222;
-	--type-text-color: #999;
-
-	--cursor: #999f;
-	--cursor-transparent: #9991;
-
-	--checked: #222;
-	/* --checked: #2c2; */
-	--wrong: #c22;
-	--wrong-bg: #c221;
-
-	--rgb: repeat fixed text linear-gradient(90deg, #1e22aa99, #9b26b699, #f8485e99, #ff8f1c99, #fedb0099, #97d70099, #fedb0099, #ff8f1c99, #f8485e99, #9b26b699, #1e22aa99) center/contain;
-	--letter-text-color: transparent;
-
-	--brightness: brightness(90%);
 }
 [data-theme='dark-rgb'] {
 	--bg: #2e2e2e;
@@ -97,34 +24,84 @@ html {
 	--letter-box-shadow: #454545;
 	--kb-bg: #3c3c3c;
 	--kb-box-shadow: #222;
-
 	--main-text-color: #fff;
 	--type-text-color: #999;
-
 	--cursor: #999f;
 	--cursor-transparent: #9991;
-
 	--checked: #7f7;
 	--wrong: #f77;
 	--wrong-bg: #f222;
-
 	--rgb: repeat fixed text linear-gradient(90deg, #1e22aa99, #9b26b699, #f8485e99, #ff8f1c99, #fedb0099, #97d70099, #fedb0099, #ff8f1c99, #f8485e99, #9b26b699, #1e22aa99) center/contain;
 	--letter-text-color: transparent;
-
 	--brightness: brightness(80%);
 }
+[data-theme='light'] {
+	--bg: #e0e0e0;
+	--letter-bg: #ddd;
+	--letter-box-shadow: #ccc;
+	--kb-bg: #bbb;
+	--kb-box-shadow: #aaa;
+	--main-text-color: #222;
+	--type-text-color: #999;
+	--cursor: #999f;
+	--cursor-transparent: #9991;
+	--checked: #222;
+	/* --checked: #2c2; */
+	--wrong: #c22;
+	--wrong-bg: #c221;
+	--rgb: none;
+	--letter-text-color: #222;
+	--brightness: brightness(90%);
+}
+[data-theme='light-rgb'] {
+	--bg: #e0e0e0;
+	--letter-bg: #ddd;
+	--letter-box-shadow: #ccc;
+	--kb-bg: #bbb;
+	--kb-box-shadow: #aaa;
+	--main-text-color: #222;
+	--type-text-color: #999;
+	--cursor: #999f;
+	--cursor-transparent: #9991;
+	--checked: #222;
+	/* --checked: #2c2; */
+	--wrong: #c22;
+	--wrong-bg: #c221;
+	--rgb: repeat fixed text linear-gradient(90deg, #1e22aa99, #9b26b699, #f8485e99, #ff8f1c99, #fedb0099, #97d70099, #fedb0099, #ff8f1c99, #f8485e99, #9b26b699, #1e22aa99) center/contain;
+	--letter-text-color: transparent;
+	--brightness: brightness(90%);
+}
+[data-theme='tilia'] {
+	--bg: #fecede;
+	--letter-bg: #748;
+	--letter-box-shadow: #637;
+	--kb-bg: #eac;
+	--kb-box-shadow: #d9b;
+	--main-text-color: #222;
+	--type-text-color: #999;
+	--cursor: #999f;
+	--cursor-transparent: #9991;
+	--checked: #748;
+	--wrong: #f77;
+	--wrong-bg: #f222;
+	--rgb: repeat fixed text linear-gradient(90deg, #1e22aa99, #9b26b699, #f8485e99, #ff8f1c99, #fedb0099, #97d70099, #fedb0099, #ff8f1c99, #f8485e99, #9b26b699, #1e22aa99) center/contain;
+	--letter-text-color: transparent;
+	--brightness: brightness(80%);
+}
+:root {
+	font-size: 0.8rem;
+}
 * {
-	/* font-size: 0.8rem; */
+	padding: 0;
+	margin: 0;
 }
 body {
 	background: var(--bg);
 	color: var(--main-text-color);
 }
-
 .letter {
 	display: inline-block;
 	text-align: center;
-
 	width: 2rem;
 	height: 2rem;
 	padding: 1rem;
@@ -147,11 +124,13 @@ body {
 		background-position: 100vw;
 	}
 }
-.wpm {
-	color: var(--main-text-color);
-	font-size: 2rem;
-	align-self: center;
-	justify-self: center;
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 .letter.space {
 	width: 24rem;
@@ -187,7 +166,6 @@ body {
 	filter: var(--brightness);
 	transition: none;
 }
-
 @keyframes keypressed {
 	0% {
 		filter: brightness(10%);
@@ -206,34 +184,31 @@ body {
 	border-radius: 1rem;
 	z-index: -10;
 }
-
 .type {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-wrap: wrap;
 	height: fit-content;
+	max-width: 75%;
 	padding: 5rem;
+	margin: 0 auto;
 	font: 1.5rem monospace;
 }
-
 .totype {
 	color: var(--type-text-color);
 	border-bottom: 1px solid #0000;
 }
-
 main {
 	display: grid;
 	max-width: 100vw;
-	max-height: 95dvh;
-	grid-template-rows: 2fr 5fr 2fr;
+	height: 95vh;
+	grid-template-rows: 4fr 2fr 5fr 2fr;
 }
-
 .current {
 	border-bottom: 1px solid;
 	animation: 500ms infinite 500ms blink;
 }
-
 @keyframes blink {
 	0%,
 	100% {
@@ -243,19 +218,61 @@ main {
 		border-color: var(--cursor-transparent);
 	}
 }
-
 .checked {
 	color: var(--checked);
 }
 .wrong {
 	color: var(--wrong);
 	background: var(--wrong-bg);
-	border-radius: 1rem;
 }
 .hidden {
 	display: none !important;
 }
-.themes * {
+.radio * {
 	appearance: none;
+}
+.radio label:hover {
+	cursor: pointer;
+	filter: brightness(80%);
+}
+.themes {
 	font: 1.5rem monospace;
+}
+label:has(input:checked) {
+	color: #748;
+}
+.list {
+	display: flex;
+	color: var(--list-text-color);
+	align-items: center;
+	list-style: none;
+	gap: .5rem;
+}
+.bar {
+	display: flex;
+	align-self: center;
+	justify-self: center;
+	max-height: fit-content;
+	& > * {
+		display: flex;
+	}
+}
+.bar,
+.bar > nav,
+.vr {
+	gap: 1rem;
+	margin: auto 0;
+}
+li {
+	display: flex;
+	align-items: flex-end;
+}
+.wpm {
+	color: var(--main-text-color);
+	font-size: 2rem;
+}
+.vr {
+	text-align: center;
+	font-size: 2rem;
+	padding: 0 2rem;
 }
