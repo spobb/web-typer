@@ -88,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		'footer',
 		'script',
 	];
+
 	// initialize global variables
 
 	let timer = 0;
@@ -124,6 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 	function generateTest(words, wordCount) {
+		GAME_END = false;
 		wrapper.innerHTML = '';
 		// creates letters in DOM
 		let string = generateString(words, wordCount);
@@ -171,6 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		letters = document.querySelectorAll('.totype');
 	})
 
+	let sound = new Audio('key.mp3');
 
 	document.addEventListener('keydown', e => {
 		if (GAME_END) {
@@ -182,6 +185,11 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 
 		if (index < 1) index = 0;
+
+		sound.currentTime = 0;
+		sound.volume = Math.random();
+		sound.play();
+
 
 		// delete letter if key is backspace
 		if (e.code == 'Backspace') {

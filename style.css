@@ -17,6 +17,7 @@ html {
 	--rgb: none;
 	--letter-text-color: #ddd;
 	--brightness: brightness(80%);
+	--selected: #aaa;
 }
 [data-theme='dark-rgb'] {
 	--bg: #2e2e2e;
@@ -89,7 +90,7 @@ html {
 	--brightness: brightness(80%);
 }
 :root {
-	font-size: 0.8rem;
+	font-size: .8rem;
 }
 * {
 	padding: 0;
@@ -239,7 +240,7 @@ main {
 	font: 1.5rem monospace;
 }
 label:has(input:checked) {
-	color: #748;
+	color: var(--selected);
 }
 .list {
 	display: flex;
@@ -247,6 +248,7 @@ label:has(input:checked) {
 	align-items: center;
 	list-style: none;
 	gap: .5rem;
+	font-size: 1.5rem;
 }
 .bar {
 	display: flex;
